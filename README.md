@@ -6,7 +6,7 @@ It helps chess enthusiasts and developers find the exact sequence of FIDE-compli
 
 **Just input your pieces, and the engine will calculate the solution while you watch!**
 
-*Re8 Qe8 Ne7 Bb6 f6 Bh6 d5 Qe4 Ng4 Na3 Rd3 Qe3 Bf3 Nc2 d2 e2 Kg2 Ra1 Nf1*
+Try: `Re8 Qe8 Ne7 Bb6 f6 Bh6 d5 Qe4 Ng4 Na3 Rd3 Qe3 Bf3 Nc2 d2 e2 Kg2 Ra1 Nf1`
 
 ### Current Features
 * **Zero Dependencies:** Runs on 100% pure Python. No external libraries required.
