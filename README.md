@@ -1,5 +1,4 @@
 # Solo-Chess-Solver
-## Current Version: 1.0
 
 A fast, command-line solver for the Solo Chess puzzle variant, built entirely in standard library Python. 
 
