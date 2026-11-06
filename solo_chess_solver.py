@@ -133,6 +133,8 @@ def solve(pieces, memo=None):
 
 def parse_input(input_str):
     pieces = []
+    seen_squares = set()
+    
     tokens = input_str.strip().split()
     for token in tokens:
         t = token.strip()
@@ -147,10 +149,18 @@ def parse_input(input_str):
         else:
             raise ValueError(f"Invalid piece format: '{t}'")
             
-        x, y = algebraic_to_coord(sq)
+        try:
+            x, y = algebraic_to_coord(sq)
+        except ValueError:
+            raise ValueError(f"Invalid coordinate format in: '{sq}'")
+            
         if not (0 <= x < 8 and 0 <= y < 8):
             raise ValueError(f"Square out of bounds: '{sq}'")
             
+        if (x, y) in seen_squares:
+            raise ValueError(f"Multiple pieces placed on the same square: '{sq}'")
+            
+        seen_squares.add((x, y))
         pieces.append((p_type, x, y, 0))
         
     return tuple(pieces)
@@ -173,7 +183,7 @@ def animate_loading(stop_event):
 def main():
     while True:
         clear_screen()
-        print("                 Solo Chess Solver v1              ")
+        print("              Solo Chess Solver v1.0.1             ")
         print("Format example: Bf4 e3 Kc6 Rc5 (Leave blank to exit)\n")
         
         try:
